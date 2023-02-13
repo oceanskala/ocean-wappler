@@ -1,0 +1,789 @@
+{
+  "type": "mysql",
+  "connection": {
+    "host": "devocean.skalateknoloji.net",
+    "user": "admin_devodbuser",
+    "password": "BHOdi2v3yD",
+    "database": "admin_devodb"
+  },
+  "direct": true,
+  "schema": {
+    "tables": {
+      "apidoc": {
+        "db": {
+          "engine": "InnoDB",
+          "schema": "admin_devodb",
+          "collation": "utf8_general_ci",
+          "system_versioned": false
+        },
+        "columns": {
+          "id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "nullable": false
+            }
+          },
+          "name": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "description": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "file_name": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "version": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "rate_limited": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "response_format": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "authentication": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "method": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "resource": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "resource_url": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "yaml_description": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "parameters_name": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "parameters_description": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "parameters_optional": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "parameters": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "sample_url": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "sample_request": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "sample_response": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "available": {
+            "db": {
+              "type": "enum",
+              "enumValues": [
+                "0",
+                "1",
+                "2"
+              ],
+              "default": "'0'",
+              "maxLength": 1,
+              "primary": false,
+              "nullable": true
+            }
+          }
+        }
+      },
+      "wood_specie": {
+        "db": {
+          "engine": "MyISAM",
+          "schema": "admin_devodb",
+          "collation": "utf8_turkish_ci",
+          "system_versioned": false
+        },
+        "columns": {
+          "id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "nullable": false
+            }
+          },
+          "shape": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "wood_profile_custom": {
+            "db": {
+              "type": "string",
+              "maxLength": 100,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "o": {
+            "db": {
+              "type": "integer",
+              "primary": false,
+              "nullable": false
+            }
+          }
+        }
+      },
+      "smartContracts": {
+        "db": {
+          "engine": "InnoDB",
+          "schema": "admin_devodb",
+          "collation": "utf8_general_ci",
+          "system_versioned": false
+        },
+        "columns": {
+          "id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "nullable": false
+            }
+          },
+          "networkk": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "abi": {
+            "db": {
+              "type": "text",
+              "maxLength": 4294967295,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "contract_address": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "bytecode": {
+            "db": {
+              "type": "text",
+              "maxLength": 4294967295,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "_provider": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "private_key": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "secret_key": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "encrypt_type": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "symbol": {
+            "db": {
+              "type": "string",
+              "maxLength": 20,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "logo_path": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "activated": {
+            "db": {
+              "type": "enum",
+              "enumValues": [
+                "0",
+                "1"
+              ],
+              "default": "'0'",
+              "maxLength": 1,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "deployGasLimit": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "mintGasLimit": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "txGasLimit": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          }
+        }
+      },
+      "user": {
+        "db": {
+          "engine": "InnoDB",
+          "schema": "admin_devodb",
+          "collation": "utf8_general_ci",
+          "system_versioned": false
+        },
+        "columns": {
+          "id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "nullable": false
+            }
+          },
+          "email": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "psword": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "Btoken": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "dTime": {
+            "db": {
+              "type": "datetime",
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "passwordSecretKey": {
+            "db": {
+              "type": "string",
+              "maxLength": 200,
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "passwordEncryptType": {
+            "db": {
+              "type": "string",
+              "maxLength": 200,
+              "primary": false,
+              "nullable": false
+            }
+          }
+        }
+      },
+      "filepath": {
+        "db": {
+          "engine": "InnoDB",
+          "schema": "admin_devodb",
+          "collation": "utf8_general_ci",
+          "system_versioned": false
+        },
+        "columns": {
+          "id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "nullable": false
+            }
+          },
+          "serialno": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "pdf": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "img": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "video": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "audio": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "html": {
+            "db": {
+              "type": "text",
+              "maxLength": 4294967295,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "section": {
+            "db": {
+              "type": "integer",
+              "primary": false,
+              "nullable": true
+            }
+          }
+        }
+      },
+      "pdf": {
+        "db": {
+          "engine": "MyISAM",
+          "schema": "admin_devodb",
+          "collation": "utf8_turkish_ci",
+          "system_versioned": false
+        },
+        "columns": {
+          "id": {
+            "db": {
+              "type": "increments",
+              "primary": true,
+              "nullable": false
+            }
+          },
+          "serialno": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "MFS": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "ipns": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "transferWallet": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "transactionHash": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "transferHash": {
+            "db": {
+              "type": "string",
+              "maxLength": 255,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "tokenId": {
+            "db": {
+              "type": "integer",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "fee": {
+            "db": {
+              "type": "float",
+              "default": "'0'",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "transferFee": {
+            "db": {
+              "type": "float",
+              "default": "'0'",
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "hasNft": {
+            "db": {
+              "type": "string",
+              "default": "'0'",
+              "maxLength": 50,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "ipnsStatus": {
+            "db": {
+              "type": "enum",
+              "enumValues": [
+                "0",
+                "1",
+                "2"
+              ],
+              "default": "'1'",
+              "maxLength": 1,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "version": {
+            "db": {
+              "type": "integer",
+              "default": "'1'",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "cronjob_status": {
+            "db": {
+              "type": "enum",
+              "enumValues": [
+                "0",
+                "1"
+              ],
+              "default": "'0'",
+              "maxLength": 1,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "timedate": {
+            "db": {
+              "type": "timestamp",
+              "default": "knex.fn.now()",
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "NFTtimedate": {
+            "db": {
+              "type": "datetime",
+              "default": "'0000-00-00 00:00:00'",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "_network": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "requestedNetwork": {
+            "db": {
+              "type": "string",
+              "maxLength": 250,
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "nftRequest": {
+            "db": {
+              "type": "boolean",
+              "default": "'0'",
+              "primary": false,
+              "nullable": true
+            }
+          },
+          "hasStock": {
+            "db": {
+              "type": "boolean",
+              "default": "'0'",
+              "primary": false,
+              "nullable": false
+            }
+          },
+          "section": {
+            "db": {
+              "type": "integer",
+              "primary": false,
+              "nullable": true
+            }
+          }
+        }
+      }
+    },
+    "views": {},
+    "collations": [
+      {
+        "collation": "utf8_general_ci",
+        "charset": "utf8"
+      },
+      {
+        "collation": "utf8_general_mysql500_ci",
+        "charset": "utf8"
+      },
+      {
+        "collation": "utf8mb4_general_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_bin",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_unicode_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_icelandic_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_latvian_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_romanian_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_slovenian_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_polish_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_estonian_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_spanish_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_swedish_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_turkish_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_czech_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_danish_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_lithuanian_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_slovak_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_spanish2_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_roman_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_persian_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_esperanto_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_hungarian_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_sinhala_ci",
+        "charset": "utf8mb4"
+      },
+      {
+        "collation": "utf8mb4_croatian_ci",
+        "charset": "utf8mb4"
+      }
+    ]
+  }
+}

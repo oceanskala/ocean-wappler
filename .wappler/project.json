@@ -1,0 +1,50 @@
+{
+  "projectName": "ocean",
+  "styleFile": "/css/style.css",
+  "assetsFolder": "/assets",
+  "designFramework": "bootstrap5",
+  "frameworks": [
+    {
+      "name": "fontawesome_5",
+      "type": "cdn"
+    },
+    {
+      "name": "bootstrap5",
+      "type": "local"
+    },
+    {
+      "name": "appConnect",
+      "type": "local"
+    }
+  ],
+  "projectServerModel": "PHP",
+  "runtime": "capacitor",
+  "targets": [
+    {
+      "name": "Development",
+      "remoteURL": "http://localhost:8100",
+      "webLoggingMaxFiles": "5",
+      "webLoggingMaxFileSize": "10m",
+      "databaseLoggingMaxFiles": "5",
+      "databaseLoggingMaxFileSize": "10m",
+      "targetType": "docker",
+      "webServer": "apache",
+      "webServerLang": "PHP",
+      "PHPVersion": "7.3.x",
+      "databaseType": "mysql",
+      "mySQLVersion": "8.0.x",
+      "webServerPort": 8100,
+      "databasePort": 9906,
+      "mySQL_rootPassword": "vZHKSf67",
+      "mySQL_databaseName": "ocean",
+      "mySQL_username": "db_user",
+      "mySQL_password": "9ugvMprP"
+    }
+  ],
+  "activeTarget": "Development",
+  "useRouting": true,
+  "addBase": true,
+  "routingHandler": "apache",
+  "projectType": "web",
+  "activeGitRemote": "devOceanRepo"
+}
