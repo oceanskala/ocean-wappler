@@ -12757,8 +12757,7 @@ dl {
         top: 4px;
         left: 50%; }
       @media (min-width: 992px) {
-        .navbar .navbar-menu-wrapper .navbar-nav.navbar-nav-right {
-          margin-left: auto; } }
+        .navbar .navbar-menu-wrapper .navbar-nav.navbar-nav-right {margin-left: auto } }
 
 @media (max-width: 991px) {
   .navbar {

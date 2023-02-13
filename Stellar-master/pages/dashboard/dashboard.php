@@ -21,6 +21,171 @@
 </head>
 
 <body is="dmx-app" id="bodyList">
+    <?php
+    require "../test/db.php";
+    $netwrk = $db->prepare('SELECT * FROM smartContracts WHERE activated=?');
+    $netwrk->execute([1]);
+    $netwrkcek = $netwrk->fetch(PDO::FETCH_ASSOC);
+
+    $guitarsor = $db->prepare('SELECT * FROM pdf');
+    $guitarsor->execute();
+    $guitarcek = $guitarsor->fetchAll(PDO::FETCH_ASSOC);
+
+
+    echo $current_network = $netwrkcek["networkk"];
+    $symbl = $netwrkcek["symbol"];
+    $symblArr = ["BNB", "ETH", "MATIC", "AVAX", "TRX", "SOL"];
+
+    $nftcek = array();
+    $n = 0;
+    foreach ($guitarcek as $tt) {
+    if ($current_network == "All Networks") {
+        if ($guitarcek[$n]["hasNft"] != 0) {
+        array_push($nftcek, $guitarcek[$n]);
+        }
+    } elseif ($guitarcek[$n]["hasNft"] != 0 && $guitarcek[$n]["_network"] == $current_network) {
+        // echo "<br>";
+        // print_r($guitarcek[$i]);
+        array_push($nftcek, $guitarcek[$n]);
+    }
+    $n++;
+    }
+    
+
+$Arrguitar = [];
+$nftArr = [];
+
+$totalExpanse = 0;
+$totalExpanseArr = array();
+$totalExpanseUSD = 0;
+
+$i = 0;
+$p = 0;
+$k = 0;
+$s = 0;
+$year = date("Y");
+$daysmonth = [];
+$date_time_end;
+$date_time_start;
+$datetime;
+$url;
+
+if ($nftcek) {
+  foreach ($nftcek as $nf) {
+    $datetime = $nftcek[$s]["NFTtimedate"];
+    $totalExpanse += $nftcek[$i]["fee"];
+    $i++;
+  }
+} else {
+  foreach ($guitarcek as $nf) {
+    $datetime = $nftcek[$s]["NFTtimedate"];
+    $totalExpanse += $nftcek[$i]["fee"];
+    $i++;
+  }
+}
+
+        if ($current_network == "Binance" || $current_network == "BNB(Testnet)") {
+
+        $USDprice = json_decode(convertToUSD("BNB", "USd"))->USD;
+
+        $totalExpanseUSD = $totalExpanse * $USDprice;
+
+
+        } elseif ($current_network == "Ethereum" || $current_network == "Ethereum(Ropsten)") {
+
+        $USDprice = json_decode(convertToUSD("ETH", "USd"))->USD;
+
+        $totalExpanseUSD = $totalExpanse * $USDprice;
+
+        } elseif ($current_network == "Polygon" || $current_network == "Polygon(Mumbai)") {
+
+        $USDprice = json_decode(convertToUSD("MATIC", "USd"))->USD;
+
+        $totalExpanseUSD = $totalExpanse * $USDprice;
+
+        } elseif ($current_network == "AVAX" || $current_network == "Fuji(Testnet)") {
+
+        $USDprice = json_decode(convertToUSD("AVAX", "USd"))->USD;
+
+        $totalExpanseUSD = $totalExpanse * $USDprice;
+
+        } elseif ($current_network == "Tron" || $current_network == "Shasta(Testnet)") {
+
+        $USDprice = json_decode(convertToUSD("TRX", "USd"))->USD;
+
+        $totalExpanseUSD = $totalExpanse * $USDprice;
+
+        } elseif ($current_network == "All Networks") {
+        for ($t = 0; $t < count($guitarcek); $t++) {
+            $net = $guitarcek[$t]["_network"];
+            $totalExpanse2 = $guitarcek[$t]["fee"];
+
+            switch ($net) {
+            case "BNB(Testnet)":
+
+                $USDprice = json_decode(convertToUSD("BNB", "USd"))->USD;
+                $totalExpanseArr[0] += $totalExpanse2 * $USDprice;
+                $totalExpanseUSD += $totalExpanse2 * $USDprice;
+
+                break;
+            case "Ethereum(Ropsten)":
+                $USDprice = json_decode(convertToUSD("ETH", "USd"))->USD;
+                $totalExpanseArr[1] += $totalExpanse2 * $USDprice;
+                $totalExpanseUSD += $totalExpanse2 * $USDprice;
+
+                break;
+            case "Polygon(Mumbai)":
+                $USDprice = json_decode(convertToUSD("MATIC", "USd"))->USD;
+                $totalExpanseArr[2] += $totalExpanse2 * $USDprice;
+                $totalExpanseUSD += $totalExpanse2 * $USDprice;
+
+                break;
+            case "Fuji(Testnet)":
+                $USDprice = json_decode(convertToUSD("AVAX", "USd"))->USD;
+                $totalExpanseArr[3] += $totalExpanse2 * $USDprice;
+                $totalExpanseUSD += $totalExpanse2 * $USDprice;
+
+                break;
+            case "Shasta(Testnet)":
+                $USDprice = json_decode(convertToUSD("TRX", "USd"))->USD;
+                $totalExpanseArr[4] += $totalExpanse2 * $USDprice;
+                $totalExpanseUSD += $totalExpanse2 * $USDprice;
+
+                break;
+            default:
+                $totalExpanseUSD += 0;
+                break;
+            }
+
+
+        }
+        }
+
+echo $totalExpanseUSD;
+exit;
+        function convertToUSD($coin, $fiatMoney){
+
+        $url = "https://min-api.cryptocompare.com/data/price?fsym=$coin&tsyms=$fiatMoney";
+
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = array(
+            "Content-Type: application/json",
+        );
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        //for debug only!
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+        $resp = curl_exec($curl);
+        curl_close($curl);
+        return ($resp);
+
+        }
+?>
+    <script is="dmx-flow" id="flow1" type="text/dmx-flow"></script>
     <div is="dmx-browser" id="browser1"></div>
     <dmx-query-manager id="query1"></dmx-query-manager>
     <dmx-serverconnect id="serverconnect1" url="../../../dmxConnect/api/listDB.php" dmx-param:section="0"></dmx-serverconnect>
@@ -34,94 +199,6 @@
                     <img src="../../images/logo.svg" alt="logo" class="logo-dark" />
                 </a>
                 <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/logo-mini.svg" alt="logo" /></a>
-            </div>
-            <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
-                <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome Ocean Dashboard!</h5>
-                <ul class="navbar-nav navbar-nav-right ml-auto">
-                    <form class="search-form d-none d-md-block" action="#">
-                        <i class="icon-magnifier"></i>
-                        <input type="search" class="form-control" placeholder="Search Here" title="Search here">
-                    </form>
-                    <li class="nav-item"><a href="#" class="nav-link"><i class="icon-basket-loaded"></i></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><i class="icon-chart"></i></a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link count-indicator message-dropdown" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                            <i class="icon-speech"></i>
-                            <span class="count">7</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
-                            <a class="dropdown-item py-3">
-                                <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
-                                <span class="badge badge-pill badge-primary float-right">View all</span>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item preview-item">
-                                <div class="preview-thumbnail">
-                                    <img src="../../images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
-                                </div>
-                                <div class="preview-item-content flex-grow py-2">
-                                    <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
-                                    <p class="font-weight-light small-text"> The meeting is cancelled </p>
-                                </div>
-                            </a>
-                            <a class="dropdown-item preview-item">
-                                <div class="preview-thumbnail">
-                                    <img src="../../images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
-                                </div>
-                                <div class="preview-item-content flex-grow py-2">
-                                    <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
-                                    <p class="font-weight-light small-text"> The meeting is cancelled </p>
-                                </div>
-                            </a>
-                            <a class="dropdown-item preview-item">
-                                <div class="preview-thumbnail">
-                                    <img src="../../images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
-                                </div>
-                                <div class="preview-item-content flex-grow py-2">
-                                    <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
-                                    <p class="font-weight-light small-text"> The meeting is cancelled </p>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown language-dropdown d-none d-sm-flex align-items-center">
-                        <a class="nav-link d-flex align-items-center dropdown-toggle" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                            <div class="d-inline-flex mr-3">
-                                <i class="flag-icon flag-icon-us"></i>
-                            </div>
-                            <span class="profile-text font-weight-normal">English</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-left navbar-dropdown py-2" aria-labelledby="LanguageDropdown">
-                            <a class="dropdown-item">
-                                <i class="flag-icon flag-icon-us"></i> English </a>
-                            <a class="dropdown-item">
-                                <i class="flag-icon flag-icon-fr"></i> French </a>
-                            <a class="dropdown-item">
-                                <i class="flag-icon flag-icon-ae"></i> Arabic </a>
-                            <a class="dropdown-item">
-                                <i class="flag-icon flag-icon-ru"></i> Russian </a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
-                        <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                            <img class="img-xs rounded-circle ml-2" src="../../images/faces/face8.jpg" alt="Profile image"> <span class="font-weight-normal"> Henry Klein </span></a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-                            <div class="dropdown-header text-center">
-                                <img class="img-md rounded-circle" src="../../images/faces/face8.jpg" alt="Profile image">
-                                <p class="mb-1 mt-3">Allen Moreno</p>
-                                <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
-                            </div>
-                            <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
-                            <a class="dropdown-item"><i class="dropdown-item-icon icon-speech text-primary"></i> Messages</a>
-                            <a class="dropdown-item"><i class="dropdown-item-icon icon-energy text-primary"></i> Activity</a>
-                            <a class="dropdown-item"><i class="dropdown-item-icon icon-question text-primary"></i> FAQ</a>
-                            <a class="dropdown-item"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
-                        </div>
-                    </li>
-                </ul>
-                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-                    <span class="icon-menu"></span>
-                </button>
             </div>
         </nav>
         <!-- partial -->
@@ -181,10 +258,10 @@
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="page-header">
-                        <h3 class="page-title">Body List</h3>
+                        <h3 class="page-title">Dashboard</h3>
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">BodyList</a></li>
+                            <ol class="breadcrumb" style="margin-left: auto;">
+                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Body</li>
                             </ol>
                         </nav>
