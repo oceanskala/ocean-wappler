@@ -46,5 +46,5 @@
   "addBase": true,
   "routingHandler": "apache",
   "projectType": "web",
-  "activeGitRemote": "devOceanRepo"
+  "activeGitRemote": "oceanW"
 }
