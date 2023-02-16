@@ -21,69 +21,12 @@
 
 
 
-
-
-
-
-
-
-
     <div is="dmx-browser" id="browser1"></div>
     <dmx-query-manager id="query1"></dmx-query-manager>
     <dmx-serverconnect id="serverconnect1" url="../../../dmxConnect/api/nftList.php" dmx-param:section="0"></dmx-serverconnect>
-
-    <header><?php include '../../partials/_navbar.html'; ?></header>
-    <div class="row justify-content-xxl-start">
-        <div class="col-md-2 col-xxl-1">
-            <?php include '../../partials/_sidebar.html'; ?>
-        </div>
-        <div class="col-md shadow nftTable col-md-10">
-            <div class="card">
-                <div class="card-body">
-                    <div class="table-responsive text-center">
-                        <table class="table table-striped table-bordered table-sm">
-                            <thead>
-                                <tr>
-                                    <th>Serialno</th>
-                                    <th>Ipns</th>
-                                    <th>Transaction hash</th>
-                                    <th>Transfer wallet</th>
-                                    <th>Token</th>
-                                    <th>Network</th>
-                                </tr>
-                            </thead>
-                            <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="serverconnect1.data.nftListPage" id="tableRepeat2">
-                                <tr>
-
-                                    <td dmx-text="serialno"></td>
-                                    <td dmx-text="ipns"></td>
-                                    <td dmx-text="transactionHash"></td>
-                                    <td dmx-text="transferWallet"></td>
-                                    <td dmx-text="tokenId"></td>
-                                    <td dmx-text="_network"></td>
-                                    <td>
-                                        <button class="btn btn-primary btn-xs btn-sm text-xxl-center" dmx-on:click="browser1.goto('../galley/gallery.php?serial_num='+serialno)">
-                                            VIEW</button>
-                                        <!--{{btn1.value}}<button id="btn1" class="btn text-light btn-primary btn-sm" dmx-on:click="browser1.goto('../galley/gallery.php?serial_num='+serialno)">View</button>
-                                                                                                                    -->
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-primary btn-xs style91 btn-sm" dmx-on:click="browser1.goto('../transfer/transfer.php?serial_num='+serialno)">
-                                            Transfer</button>
-                                        <!-- {{btn1.value}}<button id="btn2" class="btn text-light btn-sm btn-primary" dmx-on:click="browser1.goto('../galley/gallery.php?serial_num='+serialno)">Transfer NFT</button> -->
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="container-scroller">
         <!-- partial:../../partials/_navbar.html -->
-        <!--  <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex align-items-center">
                 <a class="navbar-brand brand-logo" href="../../index.html">
                     <img src="../../images/logo.svg" alt="logo" class="logo-dark" />
@@ -178,8 +121,72 @@
                     <span class="icon-menu"></span>
                 </button>
             </div>
-        </nav> -->
+        </nav>
         <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_sidebar.html -->
+            <?php include '../../partials/_sidebar.html'; ?>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="page-header">
+                        <h3 class="page-title">Body List</h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">BodyList</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Body</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Serialno</th>
+                                                    <th>Ipns</th>
+                                                    <th>Transaction hash</th>
+                                                    <th>Transfer wallet</th>
+                                                    <th>Token</th>
+                                                    <th>Network</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="serverconnect1.data.nftListPage" id="tableRepeat2">
+                                                <tr>
+
+                                                    <td dmx-text="serialno"></td>
+                                                    <td dmx-text="ipns"></td>
+                                                    <td dmx-text="transactionHash"></td>
+                                                    <td dmx-text="transferWallet"></td>
+                                                    <td dmx-text="tokenId"></td>
+                                                    <td dmx-text="_network"></td>
+                                                    <td>{{btn1.value}}<button id="btn1" class="btn text-light bg-danger btn-sm" dmx-on:click="browser1.goto('../galley/gallery.php?serial_num='+serialno)">View</button></td>
+                                                    <td>{{btn1.value}}<button id="btn2" class="btn text-light bg-danger btn-sm" dmx-on:click="browser1.goto('../galley/gallery.php?serial_num='+serialno)">Transfer NFT</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:../../partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
         <!-- page-body-wrapper ends -->
     </div>
 

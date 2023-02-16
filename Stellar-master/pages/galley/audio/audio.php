@@ -18,17 +18,36 @@
     <dmx-serverconnect id="serverconnect1" url="../../../../dmxConnect/api/filterDB.php" dmx-param:dir="" dmx-param:filter="query.serial_num"></dmx-serverconnect>
     <div is="dmx-browser" id="browser1"></div>
 
-    <div class="row row1">
-        <?php include '../../../partials/_navbar.html'; ?>
+    <?php include '../../../partials/_navbar.html'; ?><div class="row row1">
 
 
-
-        <div class="col-4 ">
-            <?php include '../../../partials/_sidebar.html'; ?>
-        </div>
+        <?php require '../../../partials/_sidebar.html'; ?>
         <div class="col">
-            <input id="text1" name="text1" type="text" class="form-control" disabled="true" dmx-text="query.serial_num">
-            <a href="" dmx-bind:href="'https://devocean.skalateknoloji.net/pdf/'+serverconnect1.data.query[0].pdf"><img src="https://devocean.skalateknoloji.net/media/img-icon/pdf.jpg" alt="" srcset="" class="style19"></a>
+
+
+            <h1>Guitar Model</h1>
+            <p><b><i>SERIAL NUMBER</i></b></p><input id="text1" name="text1" type="text" class="form-control style15" dmx-bind:value="query.serial_num" disabled="true">
+            <div class="row quick-action-toolbar row2">
+                <div class="col">
+
+                    <div class="row">
+                        <div class="col-md-4 grid-margin stretch-card">
+
+
+
+                            <div class="card social-card card-colored twitter-card">
+                                <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
+                                    <!-- 'https://devocean.skalateknoloji.net/media/'+query.serial_num+'/video/'+serverconnect1.data.query[0].video -->
+                                    <audio controls>
+                                        <source src="" dmx-bind:src="'https://devocean.skalateknoloji.net/'+serverconnect1.data.query[0].audio">
+                                    </audio>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
