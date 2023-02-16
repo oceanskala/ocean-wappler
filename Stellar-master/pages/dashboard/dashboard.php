@@ -467,6 +467,38 @@
         }
 
 
+         $("#backward").click(function () {
+          if (nthMonth == 1) {
+            if (year == 0) {
+              chartData();
+            } else {
+              nthMonth = 12;
+              year = year - 1;
+              chartData();
+            }
+
+          } else {
+            nthMonth = nthMonth - 1;
+            chartData();
+          }
+
+        });
+        $("#forward").click(function () {
+          if (nthMonth == 12) {
+            if ((year + 2022) == currentdate.getFullYear()) {
+              chartData();
+            } else {
+              year = year + 1;
+              nthMonth = 1;
+              chartData();
+
+            }
+          } else {
+            nthMonth = nthMonth + 1;
+            chartData();
+          }
+        });
+
         chartData();
 
 
