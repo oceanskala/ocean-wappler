@@ -29,7 +29,7 @@ foreach($ntcek as $sc){
     <a class="navbar-brand brand-logo-mini" href="index.html"><img src="http://localhost:8100/Stellar-master/images/logo-mini.svg" alt="logo" /></a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
-    <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome Ocean Dashboard!</h5>
+    <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome Ocean!</h5>
     <ul class="navbar-nav align-items-center navbar-nav-right ml-auto">
       <li class="nav-item language">
       <li class="dropdown-item" style="padding: 0;">
