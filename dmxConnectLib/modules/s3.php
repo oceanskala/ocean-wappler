@@ -163,23 +163,17 @@ class s3 extends Module
         option_require($options, 'bucket');
         option_require($options, 'key');
         option_require($options, 'path');
-        option_default($options, 'stripKeyPath', FALSE);
 
         $options = $this->app->parseObject($options);
 
         $s3 = $this->getClient($options->provider);
 
         $path = Path::toSystemPath($options->path);
-        $file = $options->key;
-
-        if ($options->stripKeyPath) {
-            $file = basename($file);
-        }
 
         $data = $s3->getObject([
             'Bucket' => $options->bucket,
             'Key' => $options->key,
-            'SaveAs' => $path . '/' . $file
+            'SaveAs' => $path . '/' . $options->key
         ]);
 
         return;
