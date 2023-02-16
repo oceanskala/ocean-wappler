@@ -135,7 +135,7 @@
     <dmx-serverconnect id="dashboardcards" url="../../../dmxConnect/api/dashboard.php" dmx-param:section="0"></dmx-serverconnect>
     <dmx-serverconnect id="charts" url="../../../dmxConnect/api/charts.php" dmx-param:section="0"></dmx-serverconnect>
     <div class="container-scroller">
-        <?php include '../../partials/_navbar.html'; ?>
+        <?php include '../../partials/_navbar.php'; ?>
         <div class="container-fluid page-body-wrapper">
             <?php include '../../partials/_sidebar.html'; ?>
 

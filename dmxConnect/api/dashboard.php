@@ -15,6 +15,14 @@ $app->define(<<<'JSON'
       {
         "type": "text",
         "name": "dir"
+      },
+      {
+        "type": "text",
+        "name": "offset"
+      },
+      {
+        "type": "text",
+        "name": "limit"
       }
     ]
   },
