@@ -12757,8 +12757,7 @@ dl {
         top: 4px;
         left: 50%; }
       @media (min-width: 992px) {
-        .navbar .navbar-menu-wrapper .navbar-nav.navbar-nav-right {
-          margin-left: auto; } }
+        .navbar .navbar-menu-wrapper .navbar-nav.navbar-nav-right {margin-left: auto } }
 
 @media (max-width: 991px) {
   .navbar {
@@ -13542,6 +13541,7 @@ tyle15{
   top: 0px; } 
 .style28{
   margin-top: 10px; } 
+
 .col.heightFull{
   padding-left: 0px;
   padding-right: 30px; } 
@@ -13565,3 +13565,8 @@ ding-left: 0px; }
 .wappler-temp{ } 
 .wappler-temp{ } 
 .wappler-temp{ } 
+
+.style29{
+  background-color: #0d4875; } 
+.col-md-3{ } 
+

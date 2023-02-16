@@ -21,7 +21,11 @@ dmx.config({
         "type": "text",
         "name": "sort"
       }
-    ]
+    ],
+    "var1": {
+      "meta": null,
+      "outputType": "text"
+    }
   },
   "handleList": {
     "query": [
