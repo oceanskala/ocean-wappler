@@ -176,7 +176,7 @@
                                         <div class="col-md-6 col-xl report-inner-card">
                                             <div class="inner-card-text">
                                                 <span class="report-title">NFT Count</span>
-                                                <h4>{{dashboardcards.data.nftCount[0].nftCount}}</h4>
+                                                <h4><?php echo count($nftcek);?></h4>
                                                 <span class="report-count"> 3 Reports</span>
                                             </div>
                                             <div class="inner-card-icon bg-danger">
