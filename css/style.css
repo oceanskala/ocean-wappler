@@ -13072,12 +13072,6 @@ dl {
   padding: 12px 30px;
   background-image: -webkit-gradient(linear, right top, left top, from(#61c9fa), to(#5af71c)) !important;
   background-image: linear-gradient(to left, #61c9fa, #5af71c) !important;}
-  
-  .quick-action-toolbar .card .card-header3 {
-  color: #ffffff;
-  padding: 12px 30px;
-  background-image: -webkit-gradient(linear, right top, left top, from(#131366), to(#181824)) !important;
-  background-image: linear-gradient(to left, #131366, #181824) !important;}
 
 .quick-action-toolbar .card .quick-action-btns .btn-light {
   background-color: transparent;
@@ -13465,8 +13459,7 @@ dl {
     padding-left: 0px;
     padding-right: 0px; } 
 .col{
-    margin-top: 20px;
-    margin-left: 20px; } 
+    margin-top: 20px; } 
 .style18{
     width: 200px; } 
 .col-md-4{
@@ -13506,12 +13499,7 @@ dl {
     border-color: #06ff1c;
     font-size: 1rem; } 
 .card-body{
-    width: 100%; } 
-.col-sm-6{
-    margin-bottom: 10px;
-    margin-right: 10px; } 
-.col.colSideBar{
-    margin-left: 0px; } }
+    width: 100%; } }
 style15{
     margin-left: 4%; } 
 tyle15{
@@ -13541,32 +13529,6 @@ tyle15{
   top: 0px; } 
 .style28{
   margin-top: 10px; } 
-
-.col.heightFull{
-  padding-left: 0px;
-  padding-right: 30px; } 
-.col.colSideBar{
-  width: 20%;
-  max-width: 20%;
-  margin-top: 0px;
-  padding-left: 0px; 
-ding-left: 0px; } 
-.col-md-12{
-  border-top-color: #181824;
-  border-top-style: none;
-  border-bottom: 1px #181824;
-  border-left: 1px #181824;
-  border-right: 1px #181824; } 
-.wappler-temp{ } 
-.wappler-temp{ } 
-.wappler-temp{ } 
-.wappler-temp{ } 
-.wappler-temp{ } 
-.wappler-temp{ } 
-.wappler-temp{ } 
-.wappler-temp{ } 
-
 .style29{
   background-color: #0d4875; } 
 .col-md-3{ } 
-

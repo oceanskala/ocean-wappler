@@ -14,39 +14,37 @@
     <script src="../../../dmxAppConnect/dmxBootstrap5Navigation/dmxBootstrap5Navigation.js" defer></script>
     <script src="../../../dmxAppConnect/dmxBootstrap5Modal/dmxBootstrap5Modal.js" defer></script>
     <script src="../../../dmxAppConnect/dmxBrowser/dmxBrowser.js" defer></script>
-    <link rel="stylesheet" href="../../../dmxAppConnect/dmxBootstrap5TableGenerator/dmxBootstrap5TableGenerator.css" />
 </head>
 
 <body is="dmx-app" id="examp">
-    <div class="table-responsive">
-        <table class="table table-striped table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Serialno</th>
-                    <th>Pdf</th>
-                    <th>Img</th>
-                    <th>Video</th>
-                    <th>Audio</th>
-                    <th>Html</th>
-                    <th>Section</th>
-                </tr>
-            </thead>
-            <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="serverconnect1.data.query" id="tableRepeat1">
-                <tr>
-                    <td dmx-text="id"></td>
-                    <td dmx-text="serialno"></td>
-                    <td dmx-text="pdf"></td>
-                    <td dmx-text="img"></td>
-                    <td dmx-text="video"></td>
-                    <td dmx-text="audio"></td>
-                    <td dmx-text="html"></td>
-                    <td dmx-text="section"></td>
-                </tr>
-            </tbody>
-        </table>
+    <dmx-api-action id="api1" method="post" url="http://localhost:3000/deneme" data-type="json" dmx-data:serialNo="'ertu'" noload></dmx-api-action>
+    <div is="dmx-browser" id="browser1"></div>
+    <div class="modal" id="modal1" is="dmx-bs5-modal" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" dmx-on:click="api1.load({})">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <dmx-serverconnect id="serverconnect1" url="../../../dmxConnect/api/listDB.php" dmx-param:section="1"></dmx-serverconnect>
+    <div class="row">
+        <div class="col-md-4 col-sm-6 d-flex justify-content-center border-right">
+            <div class="wrapper text-center">
+                <h4 class="card-title">Alerts Popups</h4>
+                <p class="card-description">A success message!</p>
+                <button class="btn btn-outline-primary" dmx-on:click="modal1.show()">Click here!</button>
+            </div>
+        </div>
+    </div>
 
 
 
