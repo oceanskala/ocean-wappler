@@ -28,7 +28,7 @@
 
 
             <h1>Guitar Model</h1>
-            <p><b><i>SERIAL NUMBER</i></b></p><input id="text1" name="text1" type="text" class="form-control style15" dmx-bind:value="query.serial_num" disabled="true">
+            <p><b><i>SERIAL NUMBER</i></b></p><input id="text1" name="text1" type="text" class="form-control style15" disabled="true" dmx-bind:value="query.serial_num">
             <div class="row quick-action-toolbar row2">
                 <div class="col">
 

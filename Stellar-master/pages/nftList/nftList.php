@@ -143,7 +143,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-striped">
+                                        <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
                                                     <th>Serialno</th>
@@ -163,8 +163,10 @@
                                                     <td dmx-text="transferWallet"></td>
                                                     <td dmx-text="tokenId"></td>
                                                     <td dmx-text="_network"></td>
-                                                    <td>{{btn1.value}}<button id="btn1" class="btn text-light bg-danger btn-sm" dmx-on:click="browser1.goto('../galley/gallery.php?serial_num='+serialno)">View</button></td>
-                                                    <td>{{btn1.value}}<button id="btn2" class="btn text-light bg-danger btn-sm" dmx-on:click="browser1.goto('../galley/gallery.php?serial_num='+serialno)">Transfer NFT</button></td>
+                                                    <td><button class="btn btn-xs btn-sm text-xxl-center btn-primary" dmx-on:click="browser1.goto('../galley/gallery.php?serial_num='+serialno)">
+                                                            VIEW</button></td>
+                                                    <td><button class="btn btn-xs btn-sm text-xxl-center btn-primary" dmx-on:click="browser1.goto('../transfer/transfer.php?serial_num='+serialno)">
+                                                            NFT Transfer</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>

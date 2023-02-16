@@ -41,60 +41,36 @@
             <div class="row quick-action-toolbar justify-content-xxl-center">
                 <div class="col-md-9 grid-margin shadow">
                     <div class="card">
-                        <div class="card-header d-block d-md-flex card-header2">
-                            <h5 class="mb-0">Details</h5>
+                        <div class="card-header3 d-block d-md-flex">
+                            <h5 class="mb-0">Create Card</h5>
                         </div>
-                        <div class="d-md-flex row m-0 quick-action-btns justify-content-xxl-around" role="group" aria-label="Quick action buttons">
-                            <p class="fw-bold style29">SERIAL NUMBER<input id="text1" name="text1" type="text" class="form-control" dmx-bind:value="query.serial_num" disabled="true"></p>
-                            <!-- <div class="col-md-12 grid-margin">
-                                <div class="card">
+                        <br>
+                        <p class="fw-bold style29">SERIAL NUMBER<input id="text1" name="text1" type="text" class="form-control" dmx-bind:value="query.serial_num" disabled="true"></p>
+                        <div class="d-md-flex row m-0 quick-action-btns justify-content-between border-0" role="group" aria-label="Quick action buttons">
+                            <div class="col-sm-6 col-md-2 p-3 text-center btn-wrapper border-0" dmx-on:click="browser1.goto('../galley/guitarInfo/guitarInfo.php?serial_num='+query.serial_num)">
+                                <button type="button" class="btn px-0">
+                                    <i class="fas fa-info fa-fw"></i> <i class="icon-user mr-2"></i>Guitar Info</button>
+                            </div>
+                            <div class="col-sm-6 col-md-2 p-3 text-center btn-wrapper border-0" dmx-on:click="browser1.goto('../galley/image/image.php?serial_num'+query.serial_num)">
+                                <button type="button" class="btn px-0">
+                                    <i class="far fa-file-image fa-fw"></i>
+                                    <i class="icon-docs mr-2"></i>Image</button>
+                            </div>
+                            <div class="col-sm-6 col-md-2 p-3 text-center btn-wrapper border-0" dmx-on:click="browser1.goto('../galley/video/video.php?serial_num='+query.serial_num)">
+                                <button type="button" class="btn px-0"><i class="fas fa-play fa-sharp fa-regular"></i>
 
-                                    <div class="d-md-flex row m-0 quick-action-btns" role="group" aria-label="Quick action buttons">
-                                        <div class="col-sm-6 col-md-3 p-3 btn-wrapper text-center">
-                                            <button type="button" class="btn btn-outline-primary" dmx-on:click="modal1.show()">Crate NFT</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <div class="col-sm-6 col-md-1 p-3 text-center btn-wrapper border-0">
-                                <button type="button" class="btn btn-outline-primary" dmx-on:click="browser1.goto('../galley/guitarInfo/guitarInfo.php?serial_num='+query.serial_num)">Guitar Info</button>
+                                    <i class="icon-folder mr-2"></i>Video</button>
                             </div>
-                            <div class="col-sm-6 col-md-1 p-3 text-center btn-wrapper border-0">
-                                <button type="button" class="btn btn-outline-primary" dmx-on:click="browser1.goto('../galley/image/mage.php?serial_num='+query.serial_num)">Images</button>
+                            <div class="col-sm-6 col-md-2 p-3 text-center btn-wrapper border-0" dmx-on:click="browser1.goto('../galley/audio/audio.php?serial_num='+query.serial_num)">
+                                <button type="button" class="btn px-0">
+                                    <i class="fas fa-headphones-alt"></i>
+                                    <i class="icon-book-open mr-2"></i>Audio</button>
                             </div>
-                            <div class="col-sm-6 col-md-1 p-3 text-center btn-wrapper border-0">
-                                <button type="button" class="btn btn-outline-primary" dmx-on:click="browser1.goto('../galley/video/video.php?serial_num='+query.serial_num)">Videos</button>
+                            <div class="col-sm-6 col-md-2 p-3 text-center btn-wrapper border-0 bg-success" dmx-on:click="modal1.show()">
+                                <button type="button" class="btn px-0">
+                                    <i class="fas fa-plus"></i>
+                                    <i class="icon-book-open mr-2"></i>Create</button>
                             </div>
-                            <div class="col-sm-6 col-md-1 p-3 text-center btn-wrapper border-0">
-                                <button type="button" class="btn btn-outline-primary" dmx-on:click="browser1.goto('http://localhost:8100/Stellar-master/pages/audio/audio.php?serial_num='+query.serial_num)">Audios</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row quick-action-toolbar row2 justify-content-xxl-center">
-                <div class="col-md-9 grid-margin shadow">
-                    <div class="card">
-                        <div class="card-header d-block d-md-flex card-header2">
-                            <h5 class="mb-0">NFT</h5>
-                        </div>
-                        <div class="d-md-flex row m-0 quick-action-btns justify-content-xxl-around" role="group" aria-label="Quick action buttons">
-
-                            <div class="col-sm-6 col-md-1 p-3 btn-wrapper text-center border-0">
-                                <button type="button" class="btn btn-outline-primary" dmx-on:click="modal1.show()">Crate NFT</button>
-                            </div>
-
-                            <!-- <div class="col-md-12 grid-margin">
-                                                        <div class="card">
-                        
-                                                            <div class="d-md-flex row m-0 quick-action-btns" role="group" aria-label="Quick action buttons">
-                                                                <div class="col-sm-6 col-md-3 p-3 btn-wrapper text-center">
-                                                                    <button type="button" class="btn btn-outline-primary" dmx-on:click="modal1.show()">Crate NFT</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
                         </div>
                     </div>
                 </div>

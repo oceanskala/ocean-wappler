@@ -220,11 +220,11 @@
                                                             IPNS</button>
                                                     </td>
                                                     <td class="style9">
-                                                        <button class="btn btn-primary btn-xs 91 style91 btn-sm" dmx-on:click="browser1.goto('https://devocean.skalateknoloji.net/nftCreate.php?serial_num='+serialno)" dmx-bind:disabled="((hasNft == 'transferred') || (hasNft == 'has') || (hasStock == 1) || (nftRequest == 0))">
+                                                        <button class="btn btn-primary btn-xs 91 style91 btn-sm" dmx-on:click="browser1.goto('../create/create.php?serial_num='+serialno)" dmx-bind:disabled="((hasNft == 'transferred') || (hasNft == 'has') || (hasStock == 1) || (nftRequest == 0))">
                                                             Create</button>
                                                     </td>
                                                     <td class="style10">
-                                                        <button class="btn btn-primary btn-xs style91 btn-sm" dmx-on:click="browser1.goto('https://devocean.skalateknoloji.net/nftTransfer.php?serial_num='+serialno)" dmx-bind:disabled="((hasNft == &quot;transferred&quot;) || (hasNft == 0) ||(hasStock == 0) || (nftRequest == 0) || (transferWallet == &quot;&quot;))">
+                                                        <button class="btn btn-primary btn-xs style91 btn-sm" dmx-on:click="browser1.goto('../transfer/transfer.php?serial_num='+serialno)" dmx-bind:disabled="((hasNft == &quot;transferred&quot;) || (hasNft == 0) ||(hasStock == 0) || (nftRequest == 0) || (transferWallet == &quot;&quot;))">
                                                             Transfer</button>
                                                     </td>
                                                 </tr>
