@@ -310,11 +310,15 @@
                                             <h3><span id="nftCount" value="<?php echo count($nftcek) ?>"><?php echo count($nftcek) ?></span></h3>
                                         </div>
                                         <div class="col-md-6 col-xl-4 d-flex align-items-center">
-                                            <div class="input-group" id="income-expense-summary-chart-daterange">
+                                            <!--<div class="input-group" id="income-expense-summary-chart-daterange">
                                                 <div class="inpu-group-prepend input-group-text"><i class="icon-calendar"></i></div>
                                                 <input type="text" class="form-control">
                                                 <div class="input-group-prepend input-group-text"><i class="icon-arrow-down"></i></div>
-                                            </div>
+                                            </div>-->
+                                            <button style="width: 50%; margin-right: 2%; text-align: center; border-radius: 5px; border: none;" id="backward">
+                                                <i class="fas fa-arrow-left"></i>
+                                            </button>
+                                            <button style="width: 50%; text-align: center; border-radius: 5px; border: none;" id="forward"><i class="fas fa-arrow-right"></i></button>
                                         </div>
                                     </div>
                                     <div class="row income-expense-summary-chart mt-3">
@@ -466,38 +470,6 @@
           });
         }
 
-
-         $("#backward").click(function () {
-          if (nthMonth == 1) {
-            if (year == 0) {
-              chartData();
-            } else {
-              nthMonth = 12;
-              year = year - 1;
-              chartData();
-            }
-
-          } else {
-            nthMonth = nthMonth - 1;
-            chartData();
-          }
-
-        });
-        $("#forward").click(function () {
-          if (nthMonth == 12) {
-            if ((year + 2022) == currentdate.getFullYear()) {
-              chartData();
-            } else {
-              year = year + 1;
-              nthMonth = 1;
-              chartData();
-
-            }
-          } else {
-            nthMonth = nthMonth + 1;
-            chartData();
-          }
-        });
 
         chartData();
 

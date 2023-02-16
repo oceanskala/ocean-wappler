@@ -5,7 +5,7 @@
     <base href="/Stellar-master/pages/handleList/">
     <script src="../../../dmxAppConnect/dmxAppConnect.js"></script>
     <meta charset="UTF-8">
-    <title>SHARK</title>
+    <title>Untitled Document</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../../../bootstrap/5/css/bootstrap.min.css" />
